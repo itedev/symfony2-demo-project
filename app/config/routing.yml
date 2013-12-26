@@ -1,0 +1,10 @@
+ite_library:
+    resource: "@ITELibraryBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ite_demo:
+    resource: "@ITEDemoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

@@ -1,0 +1,23 @@
+{% extends 'ITEDemoBundle:Bundle:layout.html.twig' %}
+
+{% block headline %}Bundles{% endblock headline %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li class="active">Bundles</li>
+    </ol>
+{% endblock breadcrumbs %}
+
+{% block content_content %}
+    {% for bundle in bundles %}
+        <h3>
+            <a href="{{ path('ite_demo_bundle_index_page', {bundle: bundle.name}) }}">{{ bundle.name }}</a>
+        </h3>
+        {% if bundle.description is defined %}
+            <p>{{ bundle.description }}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock content_content %}
+
+{% block content_sidebar %}
+{% endblock content_sidebar %}

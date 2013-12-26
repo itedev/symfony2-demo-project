@@ -1,0 +1,27 @@
+{% extends 'ITEDemoBundle:Bundle:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+
+{% form_theme form 'ITEDemoBundle:Bundle/Form/Component/Hierarchical:fields.html.twig' %}
+
+{#{% form_theme form 'ITEDemoBundle:Bundle/Form/Component/DynamicChoice:fields.html.twig' %}#}
+
+{% block content_content %}
+    {{ form(form) }}
+
+    {{ parent() }}
+
+    <script>
+        (function() {
+            $(function() {
+                $('#form_collection_collectionItems_form_group').on('ite-add.collection', function(e, item) {
+                    item.find('.root').trigger('change');
+                });
+
+                window.getEValue = function(element, data) {
+                    return 'b: "' + data['b'] + '", d: ' + data['d'];
+                }
+            });
+        })();
+    </script>
+{% endblock content_content %}

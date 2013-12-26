@@ -1,0 +1,49 @@
+{% block _form_extendedItems_widget %}
+    <div class="scrollable-table-wrapper">
+        <table id="collection-table-1" class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+            <tr>
+                <th class="">Text</th>
+                <th class="">Select2</th>
+                <th class="">Bootstrap Colorpicker</th>
+                {#<th class="">Minicolors</th>#}
+                <th class="">Bootstrap Spinedit</th>
+                <th class="">Bootstrap Datetimepicker</th>
+                <th class="">Collection</th>
+                <th class="">Actions</th>
+            </tr>
+            </thead>
+            <tbody class="collection-items">
+            {{ block('form_widget') }}
+            </tbody>
+        </table>
+    </div>
+    {{ block('form_widget_add_btn') }}
+{% endblock %}
+
+{% block _form_extendedItems_entry_widget %}
+    <td>
+        {{ form_row(form.text) }}
+    </td>
+    <td>
+        {{ form_row(form.select2) }}
+    </td>
+    <td>
+        {{ form_row(form.bootstrapColorpicker) }}
+    </td>
+    {#<td>#}
+    {#{{ form_row(form.minicolors) }}#}
+    {#</td>#}
+    <td>
+        {{ form_row(form.bootstrapSpinedit) }}
+    </td>
+    <td>
+        {{ form_row(form.bootstrapDatetimepicker) }}
+    </td>
+    <td>
+        {{ form_row(form.collectionItems) }}
+    </td>
+    <td>
+        {{ block('form_widget_remove_btn') }}
+    </td>
+{% endblock %}

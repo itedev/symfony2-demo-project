@@ -1,0 +1,93 @@
+{% extends 'ITEDemoBundle:Bundle:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+
+{% block content_content %}
+    {#{{ form(form) }}#}
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <tbody>
+            <tr>
+                <th>Text</th>
+                <td>{{ entity|ite_x_editable('text') }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity|ite_x_editable('email') }}</td>
+            </tr>
+            {#<tr>#}
+                {#<th>Password</th>#}
+                {#<td>{{ entity|ite_x_editable('password') }}</td>#}
+            {#</tr>#}
+            <tr>
+                <th>Url</th>
+                <td>{{ entity|ite_x_editable('url') }}</td>
+            </tr>
+            <tr>
+                <th>Textarea</th>
+                <td>{{ entity|ite_x_editable('textarea') }}</td>
+            </tr>
+            <tr>
+                <th>Boolean</th>
+                <td>{{ entity|ite_x_editable('boolean') }}</td>
+            </tr>
+            <tr>
+                <th>Select choice</th>
+                <td>{{ entity|ite_x_editable('selectChoice') }}</td>
+            </tr>
+            <tr>
+                <th>Multiple select choice</th>
+                <td>{{ entity|ite_x_editable('multipleSelectChoice') }}</td>
+            </tr>
+            <tr>
+                <th>Radio choice</th>
+                <td>{{ entity|ite_x_editable('radioChoice') }}</td>
+            </tr>
+            <tr>
+                <th>Checkbox choice</th>
+                <td>{{ entity|ite_x_editable('checkboxChoice') }}</td>
+            </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{{ entity|ite_x_editable('datetime') }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity|ite_x_editable('date') }}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{{ entity|ite_x_editable('time') }}</td>
+            </tr>
+            <tr>
+                <th>Select2</th>
+                <td>{{ entity|ite_x_editable('select2') }}</td>
+            </tr>
+            {#<tr>#}
+                {#<th>Tinymce</th>#}
+                {#<td>{{ entity|ite_x_editable('tinymce') }}</td>#}
+            {#</tr>#}
+            <tr>
+                <th>Bootstrap datetimepicker datetime</th>
+                <td>{{ entity|ite_x_editable('bootstrapDatetimepickerDatetime') }}</td>
+            </tr>
+            <tr>
+                <th>Bootstrap datetimepicker date</th>
+                <td>{{ entity|ite_x_editable('bootstrapDatetimepickerDate') }}</td>
+            </tr>
+            <tr>
+                <th>Bootstrap datetimepicker time</th>
+                <td>{{ entity|ite_x_editable('bootstrapDatetimepickerTime') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ parent() }}
+
+    <script>
+        (function() {
+            $(function() {
+
+            });
+        })();
+    </script>
+{% endblock content_content %}

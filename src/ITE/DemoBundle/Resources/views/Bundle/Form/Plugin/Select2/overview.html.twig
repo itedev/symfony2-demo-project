@@ -1,0 +1,86 @@
+{% extends '::two_column_layout.html.twig' %}
+
+{% block headline %}ITEFormBundle{% endblock headline %}
+
+{% block content_content %}
+    <h2>Overview</h2>
+    Homepage: <a href="http://ivaynberg.github.io/select2/">http://ivaynberg.github.io/select2/</a>
+
+    <h2>Configuration</h2>
+    <pre class="prettyprint lang-yaml"># app/config/config.yml
+
+ite_form:
+    plugins:
+        select2:    ~</pre>
+
+    <h2>Provided types</h2>
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Parent type</th>
+            <th>Required components</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>ite_select2_choice</td>
+            <td>choice</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_language</td>
+            <td>language</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_country</td>
+            <td>country</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_timezone</td>
+            <td>timezone</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_locale</td>
+            <td>locale</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_currency</td>
+            <td>currency</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_entity</td>
+            <td>entity</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_document</td>
+            <td>document</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_model</td>
+            <td>model</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>ite_select2_ajax_entity</td>
+            <td>ite_ajax_entity</td>
+            <td>dynamic_choice</td>
+        </tr>
+        <tr>
+            <td>ite_select2_google_font</td>
+            <td>ite_google_font</td>
+            <td>none</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Demo</h2>
+    {{ form(form) }}
+{% endblock content_content %}

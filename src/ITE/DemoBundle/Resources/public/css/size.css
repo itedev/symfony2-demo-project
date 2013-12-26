@@ -1,0 +1,52 @@
+.default-input-width {
+    width: 220px;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.margin-left-0 {
+    margin-left: 0 !important;
+}
+
+.margin-right-0 {
+    margin-right: 0 !important;
+}
+
+.margin-left-right-0 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.margin-bottom-10px {
+    margin-bottom: 10px;
+}
+
+.margin-bottom-15px {
+    margin-bottom: 15px;
+}
+
+.margin-top {
+    margin-top: 0;
+}
+
+.margin-top-10px {
+    margin-top: 10px;
+}
+
+.width100px {
+    width: 100px;
+}
+
+.width150px {
+    width: 150px;
+}
+
+.width50 {
+    width: 50%;
+}
+
+.width100 {
+    width: 100%;
+}

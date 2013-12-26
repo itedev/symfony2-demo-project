@@ -1,0 +1,39 @@
+{% extends ite_parent_form_resource() %}
+
+{% block choice_widget %}
+    {{ parent() }}
+    {% if submitted %}
+        {% set submitted_data = null %}
+        {% if data is not empty %}
+            {% if data is iterable %}
+                {% set submitted_data = [] %}
+                {% for item in data %}
+                    {% if item.id is defined %}
+                        {% set submitted_data = submitted_data|merge([{'id': item.id}]) %}
+                    {% else %}
+                        {% set submitted_data = submitted_data|merge([item]) %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {% if data.id is defined %}
+                    {% set submitted_data = {'id': data.id} %}
+                {% else %}
+                    {% set submitted_data = data %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        <div class="col-lg-offset-3 col-lg-9 margin-top-10px">
+            <div class="highlight margin-bottom-0">
+                {{ dump(submitted_data) }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block button_widget %}
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            {{ parent() }}
+        </div>
+    </div>
+{% endblock button_widget %}

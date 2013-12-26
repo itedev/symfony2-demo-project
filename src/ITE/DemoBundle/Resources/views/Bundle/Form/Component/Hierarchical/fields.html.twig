@@ -1,0 +1,12 @@
+{% block _form_collection_collectionItems_entry_widget %}
+    <div class="col-lg-4">
+       {{ form_widget(form.root) }}
+    </div>
+    <div class="col-lg-5">
+        {{ form_widget(form.selectChoice) }}
+    </div>
+    <div class="col-lg-3">
+        {% set widget_remove_btn = {label: 'Remove', attr: {class: 'btn btn-default'}, icon: 'remove-sign', icon_color: null} %}
+        {{ block('form_widget_remove_btn') }}
+    </div>
+{% endblock _form_collection_collectionItems_entry_widget %}

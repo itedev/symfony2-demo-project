@@ -1,0 +1,189 @@
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
+<!DOCTYPE html>
+
+{% block html_tag %}
+<html>
+{% endblock html_tag %}
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8" />
+        {% block head_style %}
+            {# Override this block to add your own files! #}
+            {#'@ITEDemoBundle/Resources/public/css/pygments-manni.css'#}
+            {% stylesheets
+            '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle-fa.less'
+            '@ITEDemoBundle/Resources/public/css/sticky-footer.css'
+            '@ITEDemoBundle/Resources/public/css/main.css'
+            '@ITEDemoBundle/Resources/public/css/docs.css'
+            '@ITELibraryBundle/Resources/public/library/google-code-prettify/prettify.css'
+            '@ITEDemoBundle/Resources/public/css/prettify.css'
+            '@ITEDemoBundle/Resources/public/css/github.css'
+            '@ITEDemoBundle/Resources/public/css/size.css'
+            '@ITELibraryBundle/Resources/public/plugin/select2/select2.css'
+            '@ITELibraryBundle/Resources/public/plugin/select2/select2-bootstrap.css'
+            '@ITELibraryBundle/Resources/public/plugin/bootstrap_colorpicker/dist/css/bootstrap-colorpicker.css'
+            '@ITELibraryBundle/Resources/public/plugin/bootstrap_spinedit/css/bootstrap-spinedit.css'
+            '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker/css/bootstrap-datetimepicker.css'
+            '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker2/css/bootstrap-datetimepicker.min.css'
+            '@ITELibraryBundle/Resources/public/plugin/fileupload/css/jquery.fileupload.css'
+            '@ITELibraryBundle/Resources/public/plugin/fineuploader/fineuploader.css'
+            '@ITELibraryBundle/Resources/public/plugin/minicolors/jquery.minicolors.css'
+            '@ITELibraryBundle/Resources/public/plugin/starrating/jquery.rating.css'
+            '@ITELibraryBundle/Resources/public/plugin/x_editable/bootstrap3-editable/css/bootstrap-editable.css'
+            ite_js_sf_assets()
+            %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+            {% endstylesheets %}
+            {# To use this without less use the base_css.html.twig template as your base
+             # Be sure you understand whats going on: have a look into
+             # https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/css-vs-less.md
+             #}
+        {% endblock head_style %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block head_script %}
+            {# Overwrite this block to add your own js here, to get them generated into final files #}
+            {% javascripts
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock head_script %}
+
+        <title>{% block title %}ITE{% endblock title %}</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% block head_bottom %}
+        {% endblock head_bottom %}
+    </head>
+{% endblock head %}
+
+{% block body_tag %}
+<body data-spy="scroll">
+{% endblock body_tag %}
+
+{% block body_start %}
+{% endblock body_start %}
+
+{% block body %}
+    <div id="wrap">
+        {% block navbar %}
+            {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with {  } %}
+                {% block brand %}
+                    <a class="navbar-brand" href="#">ITE</a>
+                {% endblock %}
+                {% block menu %}
+                    {{ parent() }}
+                    {{ mopa_bootstrap_menu('frontendNavbar') }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock navbar %}
+
+        {% block container %}
+        {% block container_div_start %}<div class="{% block container_class %}container{% endblock container_class %}">{% endblock container_div_start %}
+            {% block header %}
+            {% endblock header %}
+
+            {% block content_div_start %}<div class="content">{% endblock content_div_start %}
+                {% block flashes %}
+                    {% if app.session.flashbag.peekAll|length > 0 %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ session_flash() }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock flashes %}
+
+                {% block content_row %}
+                    <div class="row">
+                        {% block content %}{% endblock content %}
+                    </div>
+                {% endblock content_row %}
+                {% block content_div_end %}</div>{% endblock content_div_end %}
+            {% endblock container %}
+            {% block container_div_end %}</div><!-- /container -->{% endblock container_div_end %}
+    </div>
+    <div id="footer">
+        <div class="{{ block('container_class') }}">
+            <footer>
+                {% block footer %}
+                    <p class="text-muted">
+                        &copy; {{ 'now'|date('Y') }} ITE
+                    </p>
+                {% endblock footer %}
+            </footer>
+        </div>
+    </div>
+{% block foot_script %}
+    {# To only use a subset or add more js overwrite and copy paste this block
+    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+    Otherwise the regeneration is done on every load in dev more with use_controller: true
+     #}
+    {#'@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'#}
+
+    {#'@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker2/js/bootstrap-datetimepicker.min.js'#}
+
+    {% javascripts
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/affix.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/alert.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/button.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/carousel.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/collapse.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/dropdown.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/modal.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/popover.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tab.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/transition.js'
+    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+    '@ITELibraryBundle/Resources/public/library/google-code-prettify/prettify.js'
+    '@ITELibraryBundle/Resources/public/library/momentjs/moment-with-langs.js'
+    '@ITELibraryBundle/Resources/public/plugin/select2/select2.js'
+    '@ITELibraryBundle/Resources/public/plugin/tinymce/js/tinymce/jquery.tinymce.min.js'
+    '@ITELibraryBundle/Resources/public/plugin/bootstrap_colorpicker/dist/js/bootstrap-colorpicker.js'
+    '@ITELibraryBundle/Resources/public/plugin/bootstrap_spinedit/js/bootstrap-spinedit.js'
+    '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker/js/bootstrap-datetimepicker.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/vendor/jquery.ui.widget.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/site/load-image.min.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/site/canvas-to-blob.min.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/site/jquery.blueimp-gallery.min.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.iframe-transport.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload-process.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload-image.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload-audio.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload-video.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload-validate.js'
+    '@ITELibraryBundle/Resources/public/plugin/fileupload/js/jquery.fileupload-ui.js'
+    '@ITELibraryBundle/Resources/public/plugin/fineuploader/jquery.fineuploader.js'
+    '@ITELibraryBundle/Resources/public/plugin/minicolors/jquery.minicolors.js'
+    '@ITELibraryBundle/Resources/public/plugin/knob/js/jquery.knob.js'
+    '@ITELibraryBundle/Resources/public/plugin/starrating/jquery.rating.js'
+    '@ITELibraryBundle/Resources/public/plugin/x_editable/bootstrap3-editable/js/bootstrap-editable.js'
+    '@ITELibraryBundle/Resources/public/plugin/nod/nod.js'
+    '@ITELibraryBundle/Resources/public/plugin/parsley/parsley.js'
+    '@ITELibraryBundle/Resources/public/plugin/form/jquery.form.js'
+    '@ITEFormBundle/Resources/public/js/plugin/x_editable/tinymce.js'
+    '@ITEDemoBundle/Resources/public/js/main.js'
+    '@ITEJsBundle/Resources/public/js/sf.js'
+    '@ITEFormBundle/Resources/public/js/sf.form.js'
+    ite_js_sf_assets()
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {{ ite_js_sf_dump() }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+{% endblock foot_script %}
+{% endblock body %}
+</body>
+</html>

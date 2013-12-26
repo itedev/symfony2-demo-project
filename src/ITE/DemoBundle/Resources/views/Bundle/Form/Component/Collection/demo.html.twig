@@ -1,0 +1,30 @@
+{% extends 'ITEDemoBundle:Bundle:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+
+{% form_theme form 'ITEDemoBundle:Bundle/Form/Component/Collection:fields.html.twig' %}
+
+{% block content_content %}
+    {{ form(form) }}
+
+    {{ parent() }}
+
+    <script>
+        (function() {
+            $(function() {
+                $('#form_eventItems_form_group')
+                        .on('ite-before-add.collection', function() {
+                            if ($(this).collection('itemsCount') >= 5) {
+                                return false;
+                            }
+                        })
+                        .on('ite-before-remove.collection', function(e, item) {
+                            if (item.index() % 2) {
+                                return false;
+                            }
+                        })
+                ;
+            });
+        })();
+    </script>
+{% endblock content_content %}

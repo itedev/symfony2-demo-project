@@ -1,0 +1,64 @@
+.page-header {
+    margin-top: 0;
+}
+
+.page-header h1 {
+    margin-top: 0;
+}
+
+.nav-tabs {
+    margin-bottom: 15px;
+}
+
+.nav-tabs > li > a {
+    outline: none;
+}
+
+.scrollable-table-wrapper {
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.scrollable-table-wrapper .table {
+    margin-bottom: 0;
+}
+
+input.spinedit {
+    width: 60px !important;
+    display: inline-block;
+}
+
+.form-search div.spinedit,
+.form-inline div.spinedit,
+.form-horizontal div.spinedit {
+    top: 0 !important;
+}
+
+div.spinedit .icon-chevron-up,
+div.spinedit .icon-chevron-down {
+    left: 4px !important;
+    position: absolute !important;
+}
+
+div.spinedit .icon-chevron-up {
+    top: -21px !important;
+}
+
+div.spinedit .icon-chevron-down {
+    top: -3px !important;
+}
+
+a.headerlink {
+    color: #EEEEEE;
+    font-size: 60%;
+    margin-left: 2px;
+    text-decoration: none;
+}
+
+a.headerlink:hover {
+    color: #CCCCCC;
+}
+
+.sidebar .sidebar-header {
+    margin-top: 0;
+}

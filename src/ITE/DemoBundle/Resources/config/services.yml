@@ -1,0 +1,17 @@
+services:
+    ite_demo.menu_builder.navbar:
+        class:                                                  ITE\DemoBundle\Menu\NavbarBuilder
+        arguments: [ @knp_menu.factory ]
+
+    ite_demo.menu.navbar.main:
+        class:                                                  Knp\Menu\MenuItem
+        factory_service:                                        ite_demo.menu_builder.navbar
+        factory_method:                                         createMainMenu
+        arguments: [ @request ]
+        scope:                                                  request
+        tags:
+            - { name: knp_menu.menu, alias: frontendNavbar }
+
+    ite_demo.project_generator:
+        class:                                                  ITE\DemoBundle\Generator\ProjectGenerator
+        parent:                                                 jms_rst.project_generator

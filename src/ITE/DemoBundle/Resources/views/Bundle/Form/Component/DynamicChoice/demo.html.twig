@@ -1,0 +1,35 @@
+{% extends 'ITEDemoBundle:Bundle:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+
+{% form_theme form 'ITEDemoBundle:Bundle/Form/Component/DynamicChoice:fields.html.twig' %}
+
+{% block content_content %}
+    {{ form(form) }}
+
+    {{ parent() }}
+
+    <script>
+        (function() {
+            $(function() {
+                $('#form_choice_addChoiceChoices').on('click', function() {
+                    $('#form_choice_selectChoice').append('<option value="5" selected="selected">five</option>');
+                    $('#form_choice_multipleSelectChoice').append('<option value="10" selected="selected">ten</option>');
+                    $('#form_choice_radioChoice').append('<div class="radio"><label class=""><input type="radio" value="15" checked="checked" class="" required="required" name="form[choice][radioChoice]" id="form_choice_radioChoice_15">fifteen</label></div>');
+                    $('#form_choice_checkboxChoice').append('<div class="checkbox"><label class=""><input type="checkbox" value="20" checked="checked" class="" name="form[choice][checkboxChoice][]" id="form_choice_checkboxChoice_20">twenty</label></div>');
+
+                    $(this).closest('.form-group').parent().remove();
+                });
+
+                $('#form_entity_addEntityChoices').on('click', function() {
+                    $('#form_entity_selectEntity').append('<option value="5" selected="selected">five</option>');
+                    $('#form_entity_multipleSelectEntity').append('<option value="10" selected="selected">ten</option>');
+                    $('#form_entity_radioEntity').append('<div class="radio"><label class=""><input type="radio" value="15" checked="checked" class="" required="required" name="form[entity][radioEntity]" id="form_entity_radioEntity_15">fifteen</label></div>');
+                    $('#form_entity_checkboxEntity').append('<div class="checkbox"><label class=""><input type="checkbox" value="20" checked="checked" class="" name="form[entity][checkboxEntity][]" id="form_entity_checkboxEntity_20">twenty</label></div>');
+
+                    $(this).closest('.form-group').parent().remove();
+                });
+            });
+        })();
+    </script>
+{% endblock content_content %}

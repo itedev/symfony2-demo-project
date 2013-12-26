@@ -1,0 +1,47 @@
+{% extends '::two_column_layout.html.twig' %}
+
+{% block headline %}{{ bundlePage.title }}{% endblock headline %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="{{ path('ite_demo_bundle_index') }}">Bundles</a>
+        </li>
+        {% if bundlePage.path is not empty %}
+            <li>
+                <a href="{{ path('ite_demo_bundle_index_page', {bundle: bundle.name}) }}">{{ bundle.name }}</a>
+            </li>
+            {% for bundlePageParent in bundlePage.parents %}
+                <li>
+                    <a href="{{ bundlePageParent.link }}">
+                        {{ bundlePageParent.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+        <li class="active">{{ bundlePage.title }}</li>
+    </ol>
+{% endblock breadcrumbs %}
+
+{% block content_content %}
+    {{ bundlePage.body|raw }}
+    <ul class="pager">
+        {% if bundlePage.hasPrev() %}
+            <li class="previous">
+                <a href="{{ bundlePage.prev.link }}">&larr; {{ bundlePage.prev.title }}</a>
+            </li>
+        {% endif %}
+        {% if bundlePage.hasNext() %}
+            <li class="next">
+                <a href="{{ bundlePage.next.link }}">&rarr; {{ bundlePage.next.title }}</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock content_content %}
+
+{% block content_sidebar %}
+    {% if bundlePage.displayToc %}
+        <h2 class="sidebar-header">Table Of Contents</h2>
+        {{ bundlePage.toc|raw }}
+    {% endif %}
+{% endblock content_sidebar %}
