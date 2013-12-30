@@ -121,7 +121,7 @@ ite_form:
         tinymce:
             enabled: true
             options:
-                script_url: '/bundles/itelibrary/plugin/tinymce/js/tinymce/tinymce.min.js'
+                script_url: /bundles/itelibrary/plugin/tinymce/js/tinymce/tinymce.min.js
                 theme: modern
                 plugins: [ advlist, anchor, autolink, autoresize, autosave, charmap, code, contextmenu, directionality, emoticons, example, example_dependency, fullscreen, hr, image, insertdatetime, layer, legacyoutput, link, lists, media, nonbreaking, noneditable, pagebreak, paste, preview, print, save, searchreplace, spellchecker, tabfocus, table, template, textcolor, visualblocks, visualchars, wordcount ] # bbcode and fullpage are skipped
         bootstrap_colorpicker: ~
@@ -143,6 +143,11 @@ ite_form:
         knob: ~
         starrating: ~
         x_editable: ~
-        nod: ~
+        nod:
+            enabled: true
+            options:
+                groupClass: has-error
+                groupSelector: .form-group
+                helpSpanDisplay: help-block
         parsley: ~
         form: ~

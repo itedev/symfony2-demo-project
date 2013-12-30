@@ -258,15 +258,6 @@
   margin: 20px;
 }
 
-/* Scrollspy demo on fixed height div */
-.scrollspy-example {
-  position: relative;
-  height: 200px;
-  margin-top: 10px;
-  overflow: auto;
-}
-
-
 /*
  * Code snippets
  *

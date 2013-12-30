@@ -1,0 +1,44 @@
+/**
+ * X-Editable start
+ */
+
+.editable-checklist label {
+    font-weight: normal;
+}
+
+/**
+ * X-Editable end
+ */
+
+/**
+ * Spinedit start
+ */
+
+input.spinedit {
+    width: 60px !important;
+    display: inline-block;
+}
+
+.form-search div.spinedit,
+.form-inline div.spinedit,
+.form-horizontal div.spinedit {
+    top: 0 !important;
+}
+
+div.spinedit .icon-chevron-up,
+div.spinedit .icon-chevron-down {
+    left: 4px !important;
+    position: absolute !important;
+}
+
+div.spinedit .icon-chevron-up {
+    top: -21px !important;
+}
+
+div.spinedit .icon-chevron-down {
+    top: -3px !important;
+}
+
+/**
+ * Spinedit end
+ */
