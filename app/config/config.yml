@@ -36,10 +36,11 @@ assetic:
     bundles:        [ MopaBootstrapBundle ]
     #java: /usr/bin/java
     filters:
-        less:
-            node: %node%
-            node_paths: %node_paths%
+        lessphp:
+            file: "%kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php"
             apply_to: "\.less$"
+            formatter: "lessjs"
+            preserve_comments: false
         cssrewrite:
             apply_to: "\.(?:less|css)$"
         #closure:
@@ -77,6 +78,7 @@ mopa_bootstrap:
     form:
         render_fieldset: false
         show_legend: false
+        checkbox_label: widget
         collection:
             widget_remove_btn:
                 label: Remove
@@ -84,23 +86,41 @@ mopa_bootstrap:
             widget_add_btn:
                 label: Add
                 icon: plus-sign
-    navbar: ~
+    menu: ~
+    icons:
+        icon_set: fontawesome4
 
 fos_rest:
+    disable_csrf_role: ROLE_API
     view:
         view_response_listener: force
+        formats:
+            json: true
+        templating_formats:
+            html: true
     format_listener:
         rules:
-            - { priorities: [ html, json, xml, '*/*' ], fallback_format: html, prefer_extension: true }
+            - { path: ^/, priorities: [ html, json ], fallback_format: html, prefer_extension: true }
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
 
 sensio_framework_extra:
-    view:    { annotations: false }
+    view:
+        annotations: false
 
 jms_rst:
     sphinx_config_dir: "%kernel.root_dir%/../source"
 
 vich_uploader:
     db_driver: orm
+
+ite_js:
+    assetic:
+        cssrewrite: ~
 
 ite_form:
     components:

@@ -57,7 +57,6 @@ class CollectionType extends AbstractType
                     'widget_addon_prepend' => array(
                         'text' => '@',
                     ),
-//                    'widget_form_group' => false,
                     'horizontal_input_wrapper_class' => 'col-lg-5',
                 ),
                 'widget_items_attr' => array(
