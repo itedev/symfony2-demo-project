@@ -82,10 +82,10 @@ mopa_bootstrap:
         collection:
             widget_remove_btn:
                 label: Remove
-                icon: remove-sign
+                icon: trash
             widget_add_btn:
                 label: Add
-                icon: plus-sign
+                icon: plus-circle
     menu: ~
     icons:
         icon_set: fontawesome4
@@ -124,9 +124,7 @@ ite_js:
 
 ite_form:
     components:
-        collection:
-            enabled: true
-            type: bs3
+        collection: ~
         dynamic_choice: ~
         hierarchical: ~
         ajax_file_upload:

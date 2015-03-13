@@ -66,3 +66,19 @@ a.headerlink:hover {
 .sidebar .sidebar-header {
     margin-top: 0;
 }
+
+.form-group .collection-item:before,
+.form-group .collection-item:after {
+  content: none;
+  display: none;
+}
+
+.form-group .collection-item:after {
+  clear: none;
+}
+
+.form-group .collection-item {
+  margin-bottom: inherit;
+  padding-left: inherit;
+  padding-right: inherit;
+}

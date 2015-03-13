@@ -44,6 +44,12 @@ class CollectionType extends AbstractType
                 'by_reference' => false,
                 'collection_item_tag' => 'tr',
                 'horizontal' => false,
+                'options' => [
+                    'widget_remove_btn' => [
+                        'horizontal_wrapper_div' => false,
+                        'wrapper_div' => false,
+                    ],
+                ]
             ))
             ->add('eventItems', 'collection', array(
                 'label' => 'Collection with events and animation',
