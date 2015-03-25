@@ -33,6 +33,15 @@ class ChoiceListBuilder
     }
 
     /**
+     * @param $value
+     * @return bool|string
+     */
+    public static function getChoiceLabel($value)
+    {
+        return static::number2Text($value);
+    }
+
+    /**
      * @param array $choices
      * @return array
      */

@@ -24,22 +24,40 @@ class DynamicChoiceType extends AbstractType
             ->add('selectChoice', 'choice', array(
                 'choices' => ChoiceListBuilder::getChoicesByRange(1, 4),
                 'allow_modify' => true,
+                'choice_label' => function($value) {
+                    return ChoiceListBuilder::getChoiceLabel($value);
+                },
             ))
             ->add('multipleSelectChoice', 'choice', array(
                 'choices' => ChoiceListBuilder::getChoicesByRange(6, 9),
                 'multiple' => true,
                 'allow_modify' => true,
+                'choice_label' => function($value) {
+                    return ChoiceListBuilder::getChoiceLabel($value);
+                },
             ))
             ->add('radioChoice', 'choice', array(
                 'choices' => ChoiceListBuilder::getChoicesByRange(11, 14),
                 'expanded' => true,
+                'widget_form_group_attr' => [
+                    'id' => 'form_choice_radioChoice',
+                ],
                 'allow_modify' => true,
+                'choice_label' => function($value) {
+                    return ChoiceListBuilder::getChoiceLabel($value);
+                },
             ))
             ->add('checkboxChoice', 'choice', array(
                 'choices' => ChoiceListBuilder::getChoicesByRange(16, 19),
                 'expanded' => true,
                 'multiple' => true,
+                'widget_form_group_attr' => [
+                    'id' => 'form_choice_checkboxChoice',
+                ],
                 'allow_modify' => true,
+                'choice_label' => function($value) {
+                    return ChoiceListBuilder::getChoiceLabel($value);
+                },
             ))
             ->add('addChoiceChoices', 'button', array(
                 'label' => 'Add choice',
@@ -72,6 +90,9 @@ class DynamicChoiceType extends AbstractType
                         return $er->getByIdRangeQueryBuilder(11, 14);
                     },
                 'expanded' => true,
+                'widget_form_group_attr' => [
+                    'id' => 'form_entity_radioEntity',
+                ],
                 'allow_modify' => true,
             ))
             ->add('checkboxEntity', 'entity', array(
@@ -81,6 +102,9 @@ class DynamicChoiceType extends AbstractType
                     },
                 'expanded' => true,
                 'multiple' => true,
+                'widget_form_group_attr' => [
+                    'id' => 'form_entity_checkboxEntity',
+                ],
                 'allow_modify' => true,
             ))
             ->add('addEntityChoices', 'button', array(

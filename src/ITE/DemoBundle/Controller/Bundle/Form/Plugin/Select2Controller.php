@@ -19,10 +19,10 @@ use Symfony\Component\HttpFoundation\Request;
 class Select2Controller extends Controller
 {
     /**
-     * @Route("/overview", name="ite_demo_bundle_form_plugin_select2_overview")
+     * @Route("/demo", name="ite_demo_bundle_form_plugin_select2_overview")
      * @Template()
      */
-    public function overviewAction(Request $request)
+    public function demoAction(Request $request)
     {
         $form = $this->createForm(new Select2Type());
 
