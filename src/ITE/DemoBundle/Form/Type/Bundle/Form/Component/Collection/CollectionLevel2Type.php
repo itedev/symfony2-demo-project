@@ -16,37 +16,37 @@ class CollectionLevel2Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', 'text', array(
+            ->add('text', 'text', [
                 'label_render' => false,
-                'attr' => array(
+                'attr' => [
                     'class' => 'width100px',
-                ),
-                'widget_form_group_attr' => array(
+                ],
+                'widget_form_group_attr' => [
                     'class' => '',
-                ),
+                ],
                 'horizontal' => false,
-            ))
-            ->add('select2', 'ite_select2_choice', array(
+            ])
+            ->add('select2', 'ite_select2_choice', [
                 'label_render' => false,
                 'choices' => ChoiceListBuilder::getChoicesByRange(1, 5),
-                'attr' => array(
+                'attr' => [
                     'class' => 'width100px',
-                ),
-                'widget_form_group_attr' => array(
+                ],
+                'widget_form_group_attr' => [
                     'class' => '',
-                ),
+                ],
                 'horizontal' => false,
-            ))
-            ->add('bootstrapColorpicker', 'ite_bootstrap_colorpicker_text', array(
+            ])
+            ->add('bootstrapColorpicker', 'ite_bootstrap_colorpicker_text', [
                 'label_render' => false,
-                'attr' => array(
+                'attr' => [
                     'class' => 'width100px',
-                ),
-                'widget_form_group_attr' => array(
+                ],
+                'widget_form_group_attr' => [
                     'class' => '',
-                ),
+                ],
                 'horizontal' => false,
-            ))
+            ])
 //            ->add('minicolors', 'ite_minicolors_text', array(
 //                'label_render' => false,
 //                'attr' => array(
@@ -57,28 +57,28 @@ class CollectionLevel2Type extends AbstractType
 //                ),
 //                'horizontal' => false,
 //            ))
-            ->add('bootstrapSpinedit', 'ite_bootstrap_spinedit_number', array(
+            ->add('bootstrapSpinedit', 'ite_bootstrap_spinedit_number', [
                 'label_render' => false,
                 'precision' => 2,
-                'plugin_options' => array(
+                'plugin_options' => [
                     'step' => 0.25,
-                ),
-                'widget_form_group_attr' => array(
+                ],
+                'widget_form_group_attr' => [
                     'class' => '',
-                ),
+                ],
                 'horizontal' => false,
-            ))
-            ->add('bootstrapDatetimepicker', 'ite_bootstrap_datetimepicker_datetime', array(
+            ])
+            ->add('bootstrapDatetimepicker', 'ite_bootstrap_datetimepicker_datetime', [
                 'label_render' => false,
-                'attr' => array(
+                'attr' => [
                     'class' => 'width150px',
-                ),
-                'widget_form_group_attr' => array(
+                ],
+                'widget_form_group_attr' => [
                     'class' => '',
-                ),
+                ],
                 'horizontal' => false,
-            ))
-            ->add('collectionItems', 'collection', array(
+            ])
+            ->add('collectionItems', 'collection', [
                 'label_render' => false,
                 'type' => 'email',
                 'allow_add' => true,
@@ -86,22 +86,24 @@ class CollectionLevel2Type extends AbstractType
                 'prototype' => true,
                 'prototype_name' => '__another_name__',
                 'by_reference' => false,
-                'options' => array(
+                'options' => [
                     'label_render' => false,
-                    'widget_addon_prepend' => array(
-                        'text' => '@',
-                    ),
-//                    'widget_form_group' => false,
-                    'horizontal_input_wrapper_class' => 'col-lg-5',
-                ),
-                'widget_items_attr' => array(
-                    'class' => 'row',
-                ),
-                'widget_form_group_attr' => array(
+                    'widget_remove_btn' => [
+                        'label' => null,
+                        'wrapper_div' => false,
+                        'horizontal_wrapper_div' => [
+                            'class' => 'col-sm-5',
+                        ],
+                    ],
+                    'widget_form_group_attr' => [
+                        'class' => 'row form-group',
+                    ],
+                ],
+                'widget_form_group_attr' => [
                     'class' => '',
-                ),
+                ],
                 'horizontal' => false,
-            ))
+            ])
         ;
     }
 

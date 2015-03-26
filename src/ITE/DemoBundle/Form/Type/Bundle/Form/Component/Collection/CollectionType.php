@@ -15,27 +15,30 @@ class CollectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('simpleItems', 'collection', array(
+            ->add('simpleItems', 'collection', [
                 'label' => 'Simple collection',
                 'type' => 'email',
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
                 'by_reference' => false,
-                'options' => array(
+                'options' => [
                     'label_render' => false,
-                    'widget_addon_prepend' => array(
+                    'widget_addon_prepend' => [
                         'text' => '@',
-                    ),
-//                    'widget_form_group' => false,
-                    'horizontal_input_wrapper_class' => 'col-lg-5',
-                ),
-                'widget_items_attr' => array(
-                    'class' => 'row',
-                ),
-                'horizontal' => false,
-            ))
-            ->add('extendedItems', 'collection', array(
+                    ],
+                    'widget_remove_btn' => [
+                        'wrapper_div' => false,
+                        'horizontal_wrapper_div' => [
+                            'class' => 'col-sm-3',
+                        ],
+                    ],
+                    'widget_form_group_attr' => [
+                        'class' => 'row form-group',
+                    ],
+                ],
+            ])
+            ->add('extendedItems', 'collection', [
                 'label' => 'Extended collection with table layout and plugins',
                 'type' => new CollectionLevel2Type(),
                 'allow_add' => true,
@@ -43,56 +46,62 @@ class CollectionType extends AbstractType
                 'prototype' => true,
                 'by_reference' => false,
                 'collection_item_tag' => 'tr',
-                'horizontal' => false,
                 'options' => [
+                    'label_render' => false,
                     'widget_remove_btn' => [
                         'horizontal_wrapper_div' => false,
                         'wrapper_div' => false,
                     ],
-                ]
-            ))
-            ->add('eventItems', 'collection', array(
+                    'widget_form_group_attr' => [
+                        'class' => '',
+                    ],
+                ],
+            ])
+            ->add('eventItems', 'collection', [
                 'label' => 'Collection with events and animation',
                 'type' => 'email',
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
                 'by_reference' => false,
-                'options' => array(
+                'options' => [
                     'label_render' => false,
-                    'widget_addon_prepend' => array(
+                    'widget_addon_prepend' => [
                         'text' => '@',
-                    ),
-                    'horizontal_input_wrapper_class' => 'col-lg-5',
-                ),
-                'widget_items_attr' => array(
-                    'class' => 'row',
-                ),
-                'horizontal' => false,
-                'widget_show_animation' => array(
+                    ],
+                    'widget_remove_btn' => [
+                        'wrapper_div' => false,
+                        'horizontal_wrapper_div' => [
+                            'class' => 'col-sm-3',
+                        ],
+                    ],
+                    'widget_form_group_attr' => [
+                        'class' => 'row form-group',
+                    ],
+                ],
+                'widget_show_animation' => [
                     'type' => 'fade',
                     'length' => 200,
-                ),
-                'widget_hide_animation' => array(
+                ],
+                'widget_hide_animation' => [
                     'type' => 'slide',
                     'length' => 200,
-                ),
-            ))
-            ->add('save', 'submit', array(
-                'attr' => array(
+                ],
+                'help_block' => 'In this example we use `ite-before-add.collection` event to limit items count to 5 and `ite-before-remove.collection` event to restrict removing even items',
+            ])
+            ->add('save', 'submit', [
+                'attr' => [
                     'class' => 'btn-primary',
-                ),
-            ))
+                ],
+            ])
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'attr' => array(
-//                'class' => 'form-horizontal',
-            ),
-        ));
+        $resolver->setDefaults([
+            'horizontal' => false,
+        ]);
     }
 
     public function getName()

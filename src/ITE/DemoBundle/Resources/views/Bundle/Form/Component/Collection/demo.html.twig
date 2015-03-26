@@ -1,7 +1,5 @@
 {% extends 'ITEDemoBundle:Bundle:layout.html.twig' %}
 
-{% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
-
 {% form_theme form 'ITEDemoBundle:Bundle/Form/Component/Collection:fields.html.twig' %}
 
 {% block content_content %}
@@ -10,9 +8,9 @@
     {{ parent() }}
 
     <script>
-        (function() {
-            $(function() {
-                $('#form_eventItems_form_group')
+//        (function() {
+            jQuery(function() {
+                $('#form_eventItems_collection')
                         .on('ite-before-add.collection', function() {
                             if ($(this).collection('itemsCount') >= 5) {
                                 return false;
@@ -25,6 +23,6 @@
                         })
                 ;
             });
-        })();
+//        })();
     </script>
 {% endblock content_content %}

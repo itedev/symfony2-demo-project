@@ -1,65 +1,55 @@
 {% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
 
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>{% block title %}ITE{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% endblock %}" />
+    <meta name="robots" content="{% block meta_robots %}index,follow{% endblock %}" />
+    <meta property="og:description" content="{% block meta_og_description %}{% endblock %}" />
+    <meta property="og:image" content="{% block meta_og_image %}{% endblock %}" />
 
-{% block html_tag %}
-<html>
-{% endblock html_tag %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" />
 
-{% block head %}
-    <head>
-        <meta charset="UTF-8" />
-        {% block head_style %}
-            {# Override this block to add your own files! #}
-            {#'@ITEDemoBundle/Resources/public/css/pygments-manni.css'#}
-            {% stylesheets
-            '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle-fa.less'
-            '@ITEDemoBundle/Resources/public/css/sticky-footer.css'
-            '@ITEDemoBundle/Resources/public/css/main.css'
-            '@ITEDemoBundle/Resources/public/css/docs.css'
-            '@ITELibraryBundle/Resources/public/library/google-code-prettify/prettify.css'
-            '@ITEDemoBundle/Resources/public/css/prettify.css'
-            '@ITEDemoBundle/Resources/public/css/github.css'
-            '@ITEDemoBundle/Resources/public/css/size.css'
-            '@ITEDemoBundle/Resources/public/css/plugin.css'
-            '@ITELibraryBundle/Resources/public/plugin/select2/select2.css'
-            '@ITELibraryBundle/Resources/public/plugin/select2/select2-bootstrap.css'
-            '@ITELibraryBundle/Resources/public/plugin/bootstrap_colorpicker/dist/css/bootstrap-colorpicker.css'
-            '@ITELibraryBundle/Resources/public/plugin/bootstrap_spinedit/css/bootstrap-spinedit.css'
-            '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker/css/bootstrap-datetimepicker.css'
-            '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker2/css/bootstrap-datetimepicker.min.css'
-            '@ITELibraryBundle/Resources/public/plugin/fileupload/css/jquery.fileupload.css'
-            '@ITELibraryBundle/Resources/public/plugin/fineuploader/fineuploader.css'
-            '@ITELibraryBundle/Resources/public/plugin/minicolors/jquery.minicolors.css'
-            '@ITELibraryBundle/Resources/public/plugin/starrating/jquery.rating.css'
-            '@ITELibraryBundle/Resources/public/plugin/x_editable/bootstrap3-editable/css/bootstrap-editable.css'
-            '@sf_stylesheets'
-            %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
-            {% endstylesheets %}
-            {# To use this without less use the base_css.html.twig template as your base
-             # Be sure you understand whats going on: have a look into
-             # https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/css-vs-less.md
-             #}
-        {% endblock head_style %}
+    {% block head_stylesheets %}
+        {% stylesheets
+        '@ITEDemoBundle/Resources/public/less/style.less'
+        '@ITEDemoBundle/Resources/public/css/sticky-footer.css'
+        '@ITEDemoBundle/Resources/public/css/main.css'
+        '@ITEDemoBundle/Resources/public/css/docs.css'
+        '@ITELibraryBundle/Resources/public/library/google-code-prettify/prettify.css'
+        '@ITEDemoBundle/Resources/public/css/prettify.css'
+        '@ITEDemoBundle/Resources/public/css/github.css'
+        '@ITEDemoBundle/Resources/public/css/size.css'
+        '@ITEDemoBundle/Resources/public/css/plugin.css'
+        '@ITELibraryBundle/Resources/public/plugin/select2/select2.css'
+        '@ITELibraryBundle/Resources/public/plugin/select2/select2-bootstrap.css'
+        '@ITELibraryBundle/Resources/public/plugin/bootstrap_colorpicker/dist/css/bootstrap-colorpicker.css'
+        '@ITELibraryBundle/Resources/public/plugin/bootstrap_spinedit/css/bootstrap-spinedit.css'
+        '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker/css/bootstrap-datetimepicker.css'
+        '@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker2/css/bootstrap-datetimepicker.min.css'
+        '@ITELibraryBundle/Resources/public/plugin/fileupload/css/jquery.fileupload.css'
+        '@ITELibraryBundle/Resources/public/plugin/fineuploader/fineuploader.css'
+        '@ITELibraryBundle/Resources/public/plugin/minicolors/jquery.minicolors.css'
+        '@ITELibraryBundle/Resources/public/plugin/starrating/jquery.rating.css'
+        '@ITELibraryBundle/Resources/public/plugin/x_editable/bootstrap3-editable/css/bootstrap-editable.css'
+        '@sf_stylesheets'
+        %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+        {% endstylesheets %}
+    {% endblock head_stylesheets %}
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        {% block head_script %}
-            {# Overwrite this block to add your own js here, to get them generated into final files #}
-            {% javascripts
-            'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
-            %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock head_script %}
-
-        <title>{% block title %}ITE{% endblock title %}</title>
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-        {% block head_bottom %}
-        {% endblock head_bottom %}
-    </head>
-{% endblock head %}
+    {% block head_javascripts %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    {% endblock %}
+</head>
 
 {% block body_tag %}
 <body data-spy="scroll">
@@ -73,7 +63,7 @@
         {% block navbar %}
             {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with {  } %}
                 {% block brand %}
-                    <a class="navbar-brand" href="#">ITE</a>
+                    <a class="navbar-brand" href="/">ITE</a>
                 {% endblock %}
                 {% block menu %}
                     {{ parent() }}
@@ -119,26 +109,12 @@
         </div>
     </div>
 {% block foot_script %}
-    {# To only use a subset or add more js overwrite and copy paste this block
-    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
-    Otherwise the regeneration is done on every load in dev more with use_controller: true
-     #}
     {#'@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'#}
-
     {#'@ITELibraryBundle/Resources/public/plugin/bootstrap_datetimepicker2/js/bootstrap-datetimepicker.min.js'#}
 
     {% javascripts
     '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/affix.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/alert.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/button.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/carousel.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/collapse.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/dropdown.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/modal.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/popover.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tab.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/transition.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js'
     '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
     '@ITELibraryBundle/Resources/public/library/google-code-prettify/prettify.js'
     '@ITELibraryBundle/Resources/public/library/momentjs/moment-with-langs.js'
@@ -169,8 +145,6 @@
     '@ITELibraryBundle/Resources/public/plugin/form/jquery.form.js'
     '@ITEFormBundle/Resources/public/js/plugin/x_editable/tinymce.js'
     '@ITEDemoBundle/Resources/public/js/main.js'
-    '@ITEJsBundle/Resources/public/js/sf.js'
-    '@ITEFormBundle/Resources/public/js/sf.form.js'
     '@sf_javascripts'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -179,8 +153,6 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
-        });
-        $(document).ready(function () {
             $('[data-toggle="popover"]').popover();
         });
     </script>

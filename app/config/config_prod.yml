@@ -1,9 +1,26 @@
 imports:
     - { resource: config.yml }
+    - { resource: parameters_prod.yml }
 
 #framework:
 #    validation:
 #        cache: apc
+
+assetic:
+    filters:
+        cssrewrite:
+            apply_to: "\.(less|css)$"
+        lessphp:
+            file: "%kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php"
+            apply_to: "\.less$"
+            formatter: "lessjs"
+            preserve_comments: false
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+            apply_to: "\.css$"
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+            apply_to: "\.js$"
 
 #doctrine:
 #    orm:

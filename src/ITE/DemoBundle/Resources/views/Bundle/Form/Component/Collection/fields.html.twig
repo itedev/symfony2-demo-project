@@ -1,3 +1,9 @@
+{% block _form_simpleItems_entry_widget %}
+    <div class="col-sm-5">
+        {{ block('form_widget') }}
+    </div>
+{% endblock %}
+
 {% block _form_extendedItems_widget %}
     <div class="scrollable-table-wrapper">
         <table class="table table-striped table-bordered table-hover table-condensed" {{ block('collection_attributes') }}>
@@ -46,4 +52,16 @@
     <td>
         {{ block('form_widget_remove_btn') }}
     </td>
+{% endblock %}
+
+{% block _form_extendedItems_entry_collectionItems_entry_widget %}
+    <div class="col-sm-7">
+        {{ block('form_widget') }}
+    </div>
+{% endblock %}
+
+{% block _form_eventItems_entry_widget %}
+    <div class="col-sm-5">
+        {{ block('form_widget') }}
+    </div>
 {% endblock %}

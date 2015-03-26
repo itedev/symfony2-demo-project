@@ -16,3 +16,6 @@ parameters:
 
     node:              /usr/bin/node
     node_paths:        [ /usr/lib/node_modules ]
+
+    assets_version: 1
+    java:           /usr/bin/java
