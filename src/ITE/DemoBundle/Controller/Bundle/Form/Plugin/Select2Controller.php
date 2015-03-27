@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 class Select2Controller extends Controller
 {
     /**
-     * @Route("/demo", name="ite_demo_bundle_form_plugin_select2_overview")
      * @Template()
      */
     public function demoAction(Request $request)
