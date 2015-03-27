@@ -15,12 +15,12 @@ assetic:
             apply_to: "\.less$"
             formatter: "lessjs"
             preserve_comments: false
-        yui_css:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
-            apply_to: "\.css$"
-        yui_js:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
-            apply_to: "\.js$"
+#        yui_css:
+#            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+#            apply_to: "\.css$"
+#        yui_js:
+#            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+#            apply_to: "\.js$"
 
 #doctrine:
 #    orm:
