@@ -153,7 +153,6 @@ ite_form:
             enabled: ~
             tmp_prefix: uploads/tmp
         editable: ~
-        ordered: ~
         validation: ~
         debug: ~
     plugins:
